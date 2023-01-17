@@ -1,0 +1,104 @@
+---
+# tasks file for personal
+- setup:
+  register: myvalues
+
+- name: "display the properties of the system"
+  debug:
+    msg: "{{ myvalues }}"
+
+- set_fact:
+    gather_subset: "{{ myvalues.ansible_facts.gather_subset }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my subset is {{ gather_subset }}"
+  when: gather_subset is defined
+
+- set_fact:
+    virtualization_type: "{{ myvalues.ansible_facts.ansible_virtualization_type }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my virtualization_type is {{ virtualization_type }}"
+  when: virtualization_type is defined
+
+- set_fact:
+    system_capabilities: "{{ myvalues.ansible_facts.ansible_system_capabilities }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my system_capabilities is {{ system_capabilities }}"
+  when: system_capabilities is defined
+
+- set_fact:
+    ssh_host_key_rsa_public_keytype: "{{ myvalues.ansible_facts.ansible_ssh_host_key_rsa_public_keytype }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my ssh_host_key_rsa_public_keytype is {{ ssh_host_key_rsa_public_keytype }}"
+  when: ssh_host_key_rsa_public_keytype is defined
+
+- set_fact:
+    python: "{{ myvalues.ansible_facts.ansible_python }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my python is {{ ansible_facts.ansible_python }}"
+  when: python is defined
+
+- set_fact:
+    product_name: "{{ myvalues.ansible_facts.ansible_product_name }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my product_name is {{ product_name }}"
+  when: product_name is defined
+
+- set_fact:
+    processor: "{{ myvalues.ansible_facts.ansible_processor }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my processor is {{ processor }}"
+  when: processor is defined
+
+- set_fact:
+    proc_cmdline: "{{ myvalues.ansible_facts.ansible_proc_cmdline }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my cmdline is {{ cmdline }}"
+  when: cmdline is defined
+
+- set_fact:
+    memory_mb: "{{ myvalues.ansible_facts.ansible_memory_mb }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my memory_mb is {{ memory_mb }}"
+  when: memory_mb is defined
+
+- set_fact:
+    domain: "{{ myvalues.ansible_facts.ansible_domain }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my domain is {{ domain }}"
+  when: domain is defined
+
+- set_fact:
+    distribution: "{{ myvalues.ansible_distribution_file_path }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my distribution is {{ distribution }}"
+  when: distribution is defined
+
+- set_fact:
+    devices: "{{ myvalues.ansible_facts.ansible_devices }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my devices is {{ devices }}"
+  when: devices is defined
