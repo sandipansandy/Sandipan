@@ -1,0 +1,15 @@
+---
+- name: Check SSH connection
+  wait_for_connection:
+     delay: 5
+     timeout: 15
+  register: concheck
+  ignore_errors: true
+
+- fail:
+    msg: Connection with Target is Failed > "{{ concheck.msg }}"
+  when: concheck is failed
+
+- debug:
+    msg: My Connection is working fine
+  when: concheck is successful

@@ -1,0 +1,6 @@
+- name: my concheck playbook
+  hosts: all
+  gather_facts: true
+  roles:
+  - concheck
+
