@@ -32,14 +32,6 @@
   when: system_capabilities is defined
 
 - set_fact:
-    ssh_host_key_rsa_public_keytype: "{{ myvalues.ansible_facts.ansible_ssh_host_key_rsa_public_keytype }}"
-  when: myvalues is defined
-
-- debug:
-    msg: "my ssh_host_key_rsa_public_keytype is {{ ssh_host_key_rsa_public_keytype }}"
-  when: ssh_host_key_rsa_public_keytype is defined
-
-- set_fact:
     python: "{{ myvalues.ansible_facts.ansible_python }}"
   when: myvalues is defined
 
