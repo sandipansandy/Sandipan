@@ -1,0 +1,37 @@
+---
+# tasks file for file1
+
+- setup:
+  register: myvalues
+
+- name: "display the properties of the system"
+  debug:
+    msg: "{{ myvalues }}"
+
+- set_fact:
+    gather_subset: "{{ myvalues.ansible_facts.gather_subset }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my subset is {{ gather_subset }}"
+  when: gather_subset is defined
+
+- fail:
+    msg: "my subset is {{ gather_subset }}"
+  when: gather_subset is not defined
+
+- set_fact:
+    virtualization_type: "{{ myvalues.ansible_facts.ansible_virtualization_type }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my virtualization_type is {{ virtualization_type }}"
+  when: virtualization_type is defined
+
+- set_fact:
+    system_capabilities: "{{ myvalues.ansible_facts.ansible_system_capabilities }}"
+  when: myvalues is defined
+
+- debug:
+    msg: "my system_capabilities is {{ system_capabilities }}"
+  when: system_capabilities is defined
