@@ -1,0 +1,5 @@
+- name: my file2 playbook
+  hosts: localhost
+  gather_facts: true
+  roles: 
+  - file2

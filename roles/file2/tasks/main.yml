@@ -1,0 +1,352 @@
+---
+# tasks file for file2
+- setup:
+  register: myvalues
+
+- name: " display the facts of the system "
+  debug:
+    msg: "{{ myvalues }}"
+
+- set_fact: 
+    ip_address: "{{ myvalues.ansible_facts.ansible_all_ipv4_addresses }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my ip address is {{ ip_address }}"
+  when: ip_address is defined
+
+- fail: 
+    msg: " my ip address is {{ ip_address }}"
+  when: ip_address is not defined
+
+- set_fact:
+    access_control: "{{ myvalues.ansible_facts.ansible_apparmor }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my access control is {{ access_control }}"
+  when: access_contorl is defined
+
+- fail:
+    msg: " my access control is {{ access_control }}"
+  when: access_control is not defined
+
+- set_fact:
+    architecture: "{{ myvalues.ansible_facts.ansible_architecture }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my architecture is {{ architecture }}"
+  when: architecture is defined
+
+- fail:
+    msg: " my architecture is {{ architecture }}"
+  when: architecture is not defined
+
+- set_fact:
+    bios_date: "{{ myvalues.ansible_facts.ansible_bios_date }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my date is {{ bios_date }}"
+  when: bios_date is defined
+
+- fail:
+    msg: " my date is {{ bios_date }}"
+  when: bios_date is not defined
+
+- set_fact:
+    cmdline: "{{ myvalues.ansible_facts.ansible_cmdline }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my cmdline is {{ cmdline }}"
+  when: cmdline is defined
+
+- fail:
+    msg: " my cmdline is {{ cmdline }}"
+  when: cmdline is not defined
+
+- set_fact:
+    schedule: "{{ myvalues.ansible_facts.ansible_date_time }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my schedule is {{ schedule }}"
+  when: schedule is defined
+
+- fail:
+    msg: " my schedule is {{ schedule }}"
+  when: schedule is not defined
+
+- set_fact:
+    links: "{{ myvalues.ansible_facts.ansible_device_links }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my links is {{ links }}"
+  when: links is defined
+
+- fail:
+    msg: " my links is {{ links }}"
+  when: links is not defined
+
+- set_fact:
+    devices: "{{ myvalues.ansible_facts.ansible_devices }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my devices is {{ devices }}"
+  when: devices is defined
+
+- fail:
+    msg: " my devices is {{ devices }}"
+  when: devices is not defined
+
+- set_fact:
+    distribution: "{{ myvalues.ansible_facts.ansible_distribution }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my distribution is {{ distribution }}"
+  when: distribution is defined
+
+- fail:
+    msg: " my distribution is {{ distribution }}"
+  when: distribution is not defined
+
+- set_fact:
+    dns: "{{ myvalues.ansible_facts.ansible_dns }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my dns is {{ dns }}"
+  when: dns is defined
+
+- fail:
+    msg: " my dns is {{ dns }}"
+  when: dns is not defined
+
+- set_fact:
+    domain: "{{ myvalues.ansible_facts.ansible_domain }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my domain is {{ domain }}"
+  when: domain is defined
+
+- fail:
+    msg: " my domain is {{ domain }}"
+  when: domain is not defined
+
+- set_fact:
+    env: "{{ myvalues.ansible_facts.ansible_env }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my env is {{ env }}"
+  when: env is defined
+
+- fail:
+    msg: " my env is {{ env }}"
+  when: env is not defined
+
+- set_fact:
+    fqdn: "{{ myvalues.ansible_facts.ansible_fqdn }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my domain name is {{ fqdn }}"
+  when: fqdn is defined
+
+- fail:
+    msg: " my domain name is {{ fqdn }}"
+  when: fqdn is not defined
+
+- set_fact:
+    hostname: "{{ myvalues.ansible_facts.ansible_hostname }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my host name is {{ hostname }}"
+  when: hostname is defined
+
+- fail:
+    msg: " my host name is {{ hostname }}"
+  when: hostname is not defined
+
+- set_fact:
+    shell: "{{ myvalues.ansible_facts.ansible_kernel }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my shell is {{ shell }}"
+  when: shell is defined
+
+- fail:
+    msg: " my shell is {{ shell }}"
+  when: shell is not defined
+
+- set_fact:
+    interfaces: "{{ myvalues.ansible_facts.ansible_interfaces }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my interfaces is {{ interfaces }}"
+  when: interfaces is defined
+
+- fail:
+    msg: " my interfaces is {{ interfaces }}"
+  when: interfaces is not defined
+
+- set_fact:
+    machine: "{{ myvalues.ansible_facts.ansible_machine }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my machine is {{ machine }}"
+  when: machine is defined
+
+- fail:
+    msg: " my machine is {{ machine }}"
+  when: machine is not defined
+
+- set_fact:
+    space: "{{ myvalues.ansible_facts.ansible_memory_mb }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my space is {{ space }}"
+  when: space is defined
+
+- fail:
+    msg: " my space is {{ space }}"
+  when: space is not defined
+  
+- set_fact:
+    mounts: "{{ myvalues.ansible_facts.ansible_mounts }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my mounts is {{ mounts }}"
+  when: mounts is defined
+
+- fail:
+    msg: " my mounts is {{ mounts }}"
+  when: mounts is not defined
+
+- set_fact:
+    node: "{{ myvalues.ansible_facts.ansible_nodename }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my node is {{ node }}"
+  when: node is defined
+
+- fail:
+    msg: " my node is {{ node }}"
+  when: node is not defined
+
+- set_fact:
+    processor: "{{ myvalues.ansible_facts.ansible_processor }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my processor is {{ processor }}"
+  when: processor is defined
+
+- fail:
+    msg: " my processor is {{ processor }}"
+  when: processor is not defined
+
+- set_fact:
+    python: "{{ myvalues.ansible_facts.ansible_python }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my python is {{ python }}"
+  when: python is defined
+
+- fail:
+    msg: " my python is {{ python }}"
+  when: python is not defined
+
+- set_fact:
+    selinux: "{{ myvalues.ansible_facts.ansible_selinux }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my selinux is {{ selinux }}"
+  when: selinux is defined
+
+- fail:
+    msg: " my selinux is {{ selinux }}"
+  when: selinux is not defined
+
+- set_fact:
+    ssh: "{{ myvalues.ansible_facts.ansible_ssh_host_key_ecdsa_public }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my ssh is {{ ssh }}"
+  when: ssh is defined
+
+- fail:
+    msg: " my ssh is {{ ssh }}"
+  when: ssh is not defined
+
+- set_fact:
+    capability: "{{ myvalues.ansible_facts.ansible_system_capabilities }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my capability is {{ capability }}"
+  when: capability is defined
+
+- fail:
+    msg: " my capability {{ capability }}"
+  when: capability is not defined
+
+- set_fact:
+    id: "{{ myvalues.ansible_facts.ansible_user_id }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my id is {{ id }}"
+  when: id is defined
+
+- fail:
+    msg: " my id is {{ id }}"
+  when: id is not defined
+  
+- set_fact:
+    virtualization: "{{ myvalues.ansible_facts.ansible_virtualization_role }}"
+  when: myvalues is defined
+
+- debug:
+    msg: " my virtualization is {{ virtualization }}"
+  when: virtualization is defined
+
+- fail:
+    msg: " my virtualization is {{ virtualization }}"
+  when: virtualization is not defined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
