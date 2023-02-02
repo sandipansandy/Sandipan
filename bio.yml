@@ -1,0 +1,5 @@
+- name: my bio playbook
+  hosts: all
+  gather_facts: true
+  roles:
+  - bio

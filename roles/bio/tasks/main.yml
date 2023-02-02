@@ -1,0 +1,39 @@
+---
+# tasks file for bio
+
+- name: "display the bio of mine"
+  debug:
+    msg: "{{ my_names }}"
+  when: my_names is defined
+
+- fail: 
+    msg: names is  not shown
+  when: my_names is not defined
+
+- debug:
+    msg: "{{ my_age }}"
+  when: my_age is defined
+
+- debug: 
+    msg: "{{ my_dob }}"
+  when: my_dob is defined
+
+- debug: 
+    msg: "{{ my_salary }}"
+  when: my_salary is defined
+
+- debug:
+    msg: "{{my_designation}}"
+  when: my_designation is defined
+
+- debug: 
+    msg: "{{ my_residence }}"
+  when: my_resdidence is defined
+
+- name: deploy the project in target server
+  template:
+    src: templates/myscript.sh.j2
+    dest: /tmp/joy.txt
+
+
+
