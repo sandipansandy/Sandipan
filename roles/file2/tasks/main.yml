@@ -284,18 +284,6 @@
   when: selinux is not defined
 
 - set_fact:
-    ssh: "{{ myvalues.ansible_facts.ansible_ssh_host_key_ecdsa_public }}"
-  when: myvalues is defined
-
-- debug:
-    msg: " my ssh is {{ ssh }}"
-  when: ssh is defined
-
-- fail:
-    msg: " my ssh is {{ ssh }}"
-  when: ssh is not defined
-
-- set_fact:
     capability: "{{ myvalues.ansible_facts.ansible_system_capabilities }}"
   when: myvalues is defined
 
