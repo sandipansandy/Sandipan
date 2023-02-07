@@ -34,6 +34,3 @@
   template:
     src: templates/myscript.sh.j2
     dest: /tmp/joy.txt
-
-
-

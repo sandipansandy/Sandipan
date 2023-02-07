@@ -1,0 +1,18 @@
+---
+# tasks file for test
+- name: print my name
+  debug:
+    msg: " {{ my_name }}"
+  when: my_name is defined
+
+- name: copy the name on target server
+  copy:
+    src: files/sandipan.txt
+    dest: /tmp/sandipan.txt
+  when: my_name is defined
+
+- name: deploy the script on target server
+  template:
+    src: myscript.sh.j2
+    dest: /tmp/joy.txt
+  when: my_name is defined

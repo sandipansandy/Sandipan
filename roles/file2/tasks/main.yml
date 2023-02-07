@@ -318,23 +318,3 @@
 - fail:
     msg: " my virtualization is {{ virtualization }}"
   when: virtualization is not defined
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
